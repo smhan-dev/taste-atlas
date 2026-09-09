@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+let html=fs.readFileSync(path.join(dir,'template.html'),'utf8');
+const bundles={STYLES:['style.css','cask-theme.css','usability.css'],DATA:['data.js','course.js','archive.js','whisky-foundations.js'],APP:['app.js','cask-app.js','usability.js']};
+for(const [marker,files] of Object.entries(bundles)) html=html.replace('/* '+marker+' */',()=>files.map(file=>fs.readFileSync(path.join(dir,file),'utf8')).join('\n'));
+const out=path.join(dir,'../index.html');
+fs.writeFileSync(out,html);
+console.log(out+' · '+Math.round(Buffer.byteLength(html)/1024)+' KB');

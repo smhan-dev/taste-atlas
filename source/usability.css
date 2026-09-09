@@ -1,0 +1,197 @@
+/* Responsive navigation and reading refinements. The Cask Lounge palette stays intact. */
+[hidden]{display:none!important}
+html{scroll-padding-top:120px}
+body{overflow-wrap:break-word}
+#main:focus{outline:none}
+.topbar{position:sticky;top:0;z-index:10;background:#171a18f7;backdrop-filter:blur(14px)}
+.primary{gap:12px}
+.primary button{min-height:44px}
+.topbar .notes-link{min-height:44px}
+.workspace{grid-template-columns:minmax(0,1fr) 260px;gap:22px 36px}
+.workspace[data-page=cabinet],.workspace[data-page=notebook],.workspace[data-page=sources]{grid-template-columns:minmax(0,1fr);max-width:1160px}
+.right-inner{top:116px;max-height:calc(100dvh - 140px)}
+.rightbar{padding-left:27px}
+.right-inner .shelfcard h2{font-size:25px;margin-top:13px;line-height:1.45}
+.right-inner .minishelf{margin-top:23px;margin-bottom:13px}
+.shelf-numbers b{font-size:30px}
+.shelfcard .side-budget{margin-top:12px}
+.right-inner .side-module{margin-top:19px;padding-top:18px}
+.right-inner .side-link{min-height:40px;font-size:12px;line-height:1.8}
+.right-inner .bullet-note{line-height:1.8;margin-top:15px}
+.sidenav button{font-size:12px;min-height:40px}
+.section-picker{display:none}
+.reading{display:flex;align-items:center;gap:12px;font-size:11px;margin:10px 0 0;color:#aab49f}
+.reading .meter{width:74px;height:3px;background:#3b4536}
+.main-topline{margin-bottom:10px}
+.main-topline .eyebrow{font-size:9px}
+.main-topline .edition{font-size:11px}
+.hero{min-height:245px}
+.hero p{font-size:14px}
+.hero .hero-start{min-height:44px;margin-top:14px;font-size:13px}
+.mini-card p{font-size:13px}
+.stylecard{min-height:228px}
+.stylecard p{font-size:13px;line-height:1.85}
+.stylecard .en{font-size:13px}
+.card-bottom{font-size:11px}
+.chip{min-height:40px;font-size:12px}
+.filters{gap:8px}
+.searchwrap{border:1px solid #4d5547;border-radius:3px;padding:6px 13px;gap:10px;margin-top:18px;margin-bottom:6px;background:#20261f}
+.searchwrap:focus-within{border-color:#d5b386;box-shadow:0 0 0 1px #d5b386}
+.searchwrap input{min-height:38px;font-size:14px;min-width:0}
+.results-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:40px;margin-bottom:12px;color:#aeb8a3;font-size:12px}
+.results-meta .textbutton{font-size:12px}
+.continue-reading{border:1px solid #635943;border-radius:3px;background:#282920;display:grid;grid-template-columns:1fr auto;gap:6px 16px;text-align:left;width:100%;padding:17px 20px;margin:15px 0 24px}
+.continue-reading span{font-size:11px;color:#cfad7f}
+.continue-reading strong{grid-column:1;font-size:14px;font-weight:500;line-height:1.65;color:#e2d5bf}
+.continue-reading b{grid-column:2;grid-row:1/3;align-self:center;font-size:22px;font-weight:400;color:#d5b386}
+.lesson{scroll-margin-top:116px}
+.lesson.is-read>summary .lesson-number{color:#afc69c}
+.lesson.is-read>summary .lesson-number:after{content:'✓';font:12px var(--sans);display:block;text-align:center;margin-top:-8px}
+.lesson summary:after{flex-shrink:0}
+.lesson summary>span:last-child{min-width:0}
+.lesson-paging{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #424b38;margin-top:18px;padding-top:12px}
+.lesson-paging button{min-height:44px;font-size:13px}
+.checklearn{font-size:13px;min-height:44px}
+.checklearn input{width:20px;height:20px;flex-shrink:0}
+.table-scroll{overscroll-behavior-x:contain;max-width:100%}
+.compare-table{min-width:520px;font-size:13px;line-height:1.85}
+.compare-table td:first-child{width:75px}
+.price-table{font-size:13px}
+.price-table th,.price-table td{padding:12px 9px}
+.price-table td>button{min-height:44px;text-align:left;font-size:13px;line-height:1.7}
+.price-table input[type=number]{min-height:44px;width:82px;font-size:16px}
+.price-table input[type=checkbox]{width:22px;height:22px}
+.price-table small{font-size:11px}
+.bottle-slot small{font-size:12px;line-height:1.7}
+.cabinet-connections{margin-top:35px}
+.cabinet-connections h3{margin-top:12px}
+.cabinet-connections h4{font-size:14px;margin-top:9px}
+.back-top{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:calc(20px + env(safe-area-inset-bottom));z-index:7;background:#283025;color:#ddc299;border:1px solid #756647;border-radius:4px;min-height:44px;padding:8px 13px;font-size:14px;box-shadow:0 4px 15px #0004}
+body:has(.compare-bar:not([hidden])) .back-top{bottom:calc(86px + env(safe-area-inset-bottom))}
+.compare-bar{bottom:calc(18px + env(safe-area-inset-bottom));min-height:52px}
+.compare-bar button{min-height:40px}
+.compare-bar button[aria-label]{min-width:40px}
+.dialog-open{overflow:hidden}
+dialog{overscroll-behavior:contain;max-height:calc(100dvh - 36px);width:min(780px,94vw)}
+dialog .close{position:sticky;top:-20px;float:right;right:0;margin:-12px -8px 0 8px;width:44px;height:44px;border:1px solid #6c624e;border-radius:50%;background:#20261f;z-index:2}
+.detail-grid p{font-size:13px}
+.modal-actions .action{min-height:44px}
+.note-form input,.note-form textarea,.note-form select{font-size:16px;min-height:44px}
+.note-form textarea{line-height:1.8}
+.footer{padding-bottom:85px}
+#toast{bottom:calc(78px + env(safe-area-inset-bottom));max-width:calc(100vw - 32px);font-size:13px}
+@media(max-width:1100px){
+ .topbar{padding-left:24px;padding-right:24px;gap:15px}
+ .primary button span{display:none}
+ .workspace{padding-left:24px;padding-right:24px;grid-template-columns:minmax(0,1fr) 220px;gap:22px 26px}
+ .rightbar{padding-left:22px}
+ .right-inner .shelfcard h2{font-size:23px}
+ .shelf-numbers b{font-size:27px}
+ .hero h1{font-size:34px}
+}
+@media(max-width:980px){
+ .workspace{grid-template-columns:minmax(0,1fr);max-width:900px}
+ .rightbar{display:none!important}
+ .hero{min-height:240px}
+ .stylegrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .topbar{max-width:none}
+ .brand{min-width:165px;font-size:22px}
+ .primary{gap:4px}
+ .primary button{font-size:12px;padding-left:8px;padding-right:8px}
+}
+@media(max-width:760px){
+ html{scroll-padding-top:125px}
+ .topbar{height:auto;min-height:0;padding:12px 18px 0;gap:8px 16px;border-bottom:1px solid #4a4a3b}
+ .brand{font-size:21px;min-width:145px;gap:8px}
+ .brand small{font-size:10px;margin-top:4px}
+ .brandmark{height:30px;transform:scale(.8);width:24px}
+ .topbar .notes-link{font-size:12px;line-height:1.6;padding:0 0 0 8px}
+ .primary{order:3;flex-basis:100%;height:auto;gap:8px;margin-top:0}
+ .primary button{padding:10px 3px;min-height:46px;font-size:14px;flex:1;border-bottom-width:2px}
+ .primary button span{display:none}
+ .workspace{padding:17px 18px 36px;gap:20px}
+ .sidenav{display:none}
+ .section-picker{display:flex;align-items:center;gap:12px;border:1px solid #454e3e;border-radius:3px;background:#20261f;padding:3px 12px}
+ .section-picker>span{font-size:11px;white-space:nowrap;color:#b6a78d}
+ .section-picker select{display:block;min-width:0;flex:1;min-height:42px;background:transparent;border:0;font-size:14px;padding-right:7px;color:#e3d7c4;cursor:pointer}
+ .section-picker option{background:#20261f;color:#eee6d7}
+ .reading{font-size:11px;gap:10px;margin-top:10px;padding:0 1px}
+ .reading .meter{margin-left:auto;width:80px}
+ .main-topline{margin-bottom:7px}
+ .main-topline .edition{display:none}
+ .hero{padding:8px 0 24px;min-height:0;margin-bottom:22px}
+ .hero h1{font-size:30px;line-height:1.5;letter-spacing:-1.3px;margin-top:15px}
+ .hero p{font-size:14px;line-height:1.9;margin-top:15px}
+ .hero-art{position:absolute;right:0;top:45px;opacity:.12;pointer-events:none;width:120px;min-width:100px}
+ .hero-art .circle{width:140px;height:170px}
+ .hero-copy{padding-right:0}
+ .hero .hero-start{font-size:13px;margin-top:13px}
+ .two-col{gap:12px}
+ .two-col>.mini-card{padding:18px 20px}
+ .mini-card h3{font-size:16px;line-height:1.7}
+ .mini-card p{font-size:13px;margin-top:9px;line-height:1.85}
+ .sectionline{margin-top:25px;gap:9px}
+ .sectionline h2{font-size:22px}
+ .sectionline p{font-size:12px;line-height:1.9}
+ .sectionline small{font-size:10px}
+ .stylecard h3{font-size:17px}
+ .stylecard p{font-size:13px}
+ .stylecard .en{font-size:12px}
+ .stylecard{padding:18px;min-height:225px}
+ .card-top{margin-bottom:12px}
+ .family{font-size:10px}
+ .card-bottom{font-size:11px}
+ .tag{font-size:10px}
+ .chip{min-height:42px;padding:8px 11px;font-size:12px}
+ .searchwrap input{font-size:16px}
+ .titlepage h1{font-size:28px;line-height:1.5}
+ .lead{font-size:14px;line-height:1.95}
+ .contentblock{padding:20px}
+ .contentblock p,.lesson-body p,.lesson-body .longread p{font-size:15px;line-height:1.95}
+ .lesson summary{padding:17px 15px;gap:12px}
+ .lesson summary h3{font-size:16px;line-height:1.65}
+ .lesson summary p{font-size:12px;line-height:1.8}
+ .lesson{scroll-margin-top:122px}
+ .lesson-number{font-size:22px;min-width:26px}
+ .lesson-body{padding:0 18px 23px}
+ .course-phases span{font-size:13px}
+ .course-phases small{font-size:11px}
+ .chapter-jumps button{min-height:40px;font-size:12px}
+ .reading-table{min-width:470px;font-size:13px}
+ .checklearn{line-height:1.7}
+ .continue-reading{padding:16px}
+ .continue-reading strong{font-size:13px}
+ .price-table{min-width:0}
+ .price-table th,.price-table td{font-size:12px;padding:10px 4px}
+ .price-table th:nth-child(2){min-width:78px}
+ .price-table input[type=number]{width:73px}
+ .price-table td:first-child{width:50%}
+ .budget-stats strong{font-size:25px}
+ .budget-stats small{font-size:10px}
+ .budget-stats{gap:8px}
+ .bottle-slot small{font-size:12px}
+ .back-top{right:16px;font-size:15px;padding:7px 13px}
+ .back-top span{display:none}
+ .compare-bar{max-width:calc(100vw - 28px);gap:8px;bottom:calc(14px + env(safe-area-inset-bottom))}
+ .compare-bar>span{max-width:100px;font-size:11px}
+ dialog{width:calc(100vw - 20px);padding:24px 19px;max-height:calc(100dvh - 28px)}
+ .detail-grid{grid-template-columns:1fr}
+ .detail-grid p{font-size:14px}
+ .modalhead{gap:12px}
+ .modalhead h2{font-size:24px}
+ .modalhead .beer-dot{flex-shrink:0}
+ .footer{margin:0 18px;font-size:11px;line-height:1.8}
+}
+@media(max-width:520px){
+ .stylegrid{grid-template-columns:1fr;gap:12px}
+ .stylecard{min-height:0;padding:18px 20px}
+ .stylecard .card-top{margin-bottom:9px}
+ .stylecard .en{margin:3px 0 9px}
+ .stylecard .card-bottom{margin-top:13px;padding-top:10px}
+ .shelf-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 8px}
+ .shelf-overview{padding:18px 13px}
+ .bottle-slot .bottle{height:69px;width:32px}
+ .bottle-slot .slotnum{font-size:11px}
+}
+@media(max-width:370px){.topbar{padding-left:14px;padding-right:14px}.workspace{padding-left:14px;padding-right:14px}.primary button{font-size:13px}.hero h1{font-size:28px}.budget-stats strong{font-size:22px}.budget-stats small{font-size:9px}.price-table td>button{font-size:12px}}
+@media print{.topbar,.section-picker,.continue-reading,.lesson-paging,.back-top,.results-meta{display:none!important}.dialog-open{overflow:visible}.workspace{max-width:none}.contentblock p,.stylecard p,.mini-card p{color:#222}.hero-art{display:none}.table-scroll{overflow:visible}}
